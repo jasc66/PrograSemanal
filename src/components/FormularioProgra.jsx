@@ -1,24 +1,26 @@
 import { useState, useEffect } from "react";
 import Error from "./Error";
 
-const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
+const FormularioFuncionario = ({ funcionarios, setFuncionarios, funcionario, setFuncionario }) => {
   const [nombre, setNombre] = useState("");
-  const [propietario, setPropietario] = useState("");
+  const [agencia, setAgencia] = useState("");
+  const [telefono, setTelefono] = useState("");
   const [email, setEmail] = useState("");
   const [fecha, setFecha] = useState("");
-  const [sintomas, setSintomas] = useState("");
+  const [detalle, setDetalle] = useState("");
 
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (Object.keys(paciente).length > 0) {
-      setNombre(paciente.nombre);
-      setPropietario(paciente.propietario);
-      setEmail(paciente.email);
-      setFecha(paciente.fecha);
-      setSintomas(paciente.sintomas);
+    if (Object.keys(funcionario).length > 0) {
+      setNombre(funcionario.nombre);
+      setAgencia(funcionario.agencia);
+      setTelefono(funcionario.telefono);
+      setEmail(funcionario.email);
+      setFecha(funcionario.fecha);
+      setDetalle(funcionario.detalle);
     }
-  }, [paciente]);
+  }, [funcionario]);
 
   const generarId = () => {
     const random = Math.random().toString(36).substr(2);
@@ -30,7 +32,7 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
     e.preventDefault();
 
     // Validación del Formulario
-    if ([nombre, propietario, email, fecha, sintomas].includes("")) {
+    if ([nombre, agencia, telefono, email, fecha, detalle].includes("")) {
       console.log("Hay Al Menos un campo vacio");
 
       setError(true);
@@ -39,44 +41,48 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
 
     setError(false);
 
-    // Objeto de Paciente
-    const objetoPaciente = {
+    // Objeto de funcionario
+    const objetoFuncionario = {
       nombre,
-      propietario,
+      agencia,
+      telefono,
       email,
       fecha,
-      sintomas,
+      detalle
     };
 
-    if (paciente.id) {
-      // Editando el Registro
-      objetoPaciente.id = paciente.id;
-      const pacientesActualizados = pacientes.map((pacienteState) =>
-        pacienteState.id === paciente.id ? objetoPaciente : pacienteState
-      );
-
-      setPacientes(pacientesActualizados);
-      setPaciente({});
-    } else {
-      // Nuevo registro
-      objetoPaciente.id = generarId();
-      setPacientes([...pacientes, objetoPaciente]);
-    }
+    if (funcionario.id) {
+        // Editando el Registro
+        objetoFuncionario.id = funcionario.id;
+        const funcionarioActualizados = funcionarios.map((funcionarioState) =>
+          funcionarioState.id === funcionario.id ? objetoFuncionario : funcionarioState
+        );
+  
+        setFuncionarios(funcionarioActualizados);
+        setFuncionario({});
+      } else {
+        // Nuevo registro
+        objetoFuncionario.id = generarId();
+        setFuncionarios([...funcionarios, objetoFuncionario]);
+      }
 
     // Reiniciar el form
     setNombre("");
-    setPropietario("");
+    setAgencia("");
+    setTelefono("");
     setEmail("");
     setFecha("");
-    setSintomas("");
+    setDetalle("");
   };
 
   return (
     <div className="md:w-1/2 lg:w-2/5 mx-5">
-      <h2 className="font-black text-3xl text-center">Seguimiento Pacientes</h2>
+      <h2 className="font-black text-3xl text-center">
+        Seguimiento funcionarios
+      </h2>
 
       <p className="text-lg mt-5 text-center mb-10">
-        Añade Pacientes y {""}
+        Añade funcionarios y {""}
         <span className="text-indigo-600 font-bold ">Administralos</span>
       </p>
 
@@ -91,15 +97,15 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
         )}
         <div className="mb-5">
           <label
-            htmlFor="mascota"
+            htmlFor="funcionario"
             className="block text-gray-700 uppercase font-bold"
           >
-            Nombre Mascota
+            Nombre Funcionario
           </label>
           <input
-            id="mascota"
+            id="funcionario"
             type="text"
-            placeholder="Nombre de la Mascota"
+            placeholder="Nombre de la Funcionario"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
@@ -108,18 +114,34 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
 
         <div className="mb-5">
           <label
-            htmlFor="propietario"
+            htmlFor="agencia"
             className="block text-gray-700 uppercase font-bold"
           >
-            Nombre Propietario
+            Nombre Agencia
           </label>
           <input
-            id="propietario"
+            id="agencia"
             type="text"
-            placeholder="Nombre del Propietario"
+            placeholder="Nombre de la Agencia"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-            value={propietario}
-            onChange={(e) => setPropietario(e.target.value)}
+            value={agencia}
+            onChange={(e) => setAgencia(e.target.value)}
+          />
+        </div>
+        <div className="mb-5">
+          <label
+            htmlFor="telefono"
+            className="block text-gray-700 uppercase font-bold"
+          >
+            Telefono
+          </label>
+          <input
+            id="telefono"
+            type="text"
+            placeholder="Numero de contacto"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={telefono}
+            onChange={(e) => setTelefono(e.target.value)}
           />
         </div>
 
@@ -145,7 +167,7 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
             htmlFor="alta"
             className="block text-gray-700 uppercase font-bold"
           >
-            Alta
+            Registro
           </label>
           <input
             id="alta"
@@ -158,28 +180,28 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
 
         <div className="mb-5">
           <label
-            htmlFor="sintomas"
+            htmlFor="detalle"
             className="block text-gray-700 uppercase font-bold"
           >
-            Síntomas
+            Detalle
           </label>
           <textarea
-            id="sintomas"
+            id="detalle"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
-            placeholder="Describe los Síntomas"
-            value={sintomas}
-            onChange={(e) => setSintomas(e.target.value)}
+            placeholder="Describe los detalles"
+            value={detalle}
+            onChange={(e) => setDetalle(e.target.value)}
           />
         </div>
 
         <input
           type="submit"
           className="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors"
-          value={paciente.id ? "Editar Paciente" : "Agregar Paciente"}
+          value={funcionario.id ? "Editar funcionario" : "Agregar funcionario"}
         />
       </form>
     </div>
   );
 };
 
-export default Formulario;
+export default FormularioFuncionario;
