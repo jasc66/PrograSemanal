@@ -1,70 +1,105 @@
 export const actividadData = {
-    gerencial: [
-      "tipo_Permiso",
-      "actividad_Gerenciales",
-    ],
-    tecnico: [
-      "indicadores_1_Al_5",
-      "indicador_6",
-      "indicadores_7_Al_9",
-      "indicadores_10_Al_13",
-      "indicador_14",
-      "tipo_Permiso",
-    ],
-    opcionesDetalladas: {
-      actividad_Gerenciales: {
-        options: [
-          "Coordinar y apoyar en las instancias de articulación interinstitucional (COSEL, CCCI, Comisiones, CNE, CTDR)",
-"Promoción y aplicación de las  Buenas Prácticas Agropecuarias ",
-"Coordinar, evaluar o supervisar procesos de producción sostenible en campo",
-"Gestionar el desarrollo de encadenamientos agroproductivos",
-"Apoyar en la realización de diagnósticos  para la caracterización socio-económica y organizacional de los sistemas productivos",
-"Apoyar procesos de transferencia e innovación tecnológica agropecuaria para fortalecer los sistemas productivos de organizaciones y familias productoras. ",
-"Establecer registros de información de parámetros agroproductivos, ambientales  y socioeconómicos que permitan medir el avance en aspectos de la producción agropecuaria. (CENSO, Otros Registros).",
-"Mantener actualizado el Sistema de Respaldo Documental, con los archivos técnicos que respalden la labor de la Agencia de Extensión Agropecuaria",
-"Ejecutar programas, proyectos y procesos de extensión agropecuaria dirigidos  a productores, productoras y jóvenes rurales",
-"Coordinar acciones entre departamentos institucionales, para el cumplimiento del POI y mejorar la prestación de los servicios agropecuarios.",
-"Apoyar en la identificación, formulación y ejecución de proyectos agroproductivos presentados por las organizaciones de productores",
-"Elaborar el Plan Operativo Institucional o informes de seguimiento de conformidad con los instrumentos establecidos a nivel regional",
-"Seguimiento al buen uso de los recursos logísticos, de campo y materiales asignados, según normativas de control interno y gestión de calidad.",
-        ],
-      },
-      indicadores_1_Al_5: {
-        options: [
-          "Elaboración y/o actualización de plan de trabajo.",
-          // Add other options here
-        ],
-      },
-      indicador_6: {
-        options: [
-          "casa Elaboración y/o actualización de diagnóstico.",
-          // Add other options here
-        ],
-      },
-      indicadores_7_Al_9: {
-        options: [
-          "Perro Elaboración y/o actualización de diagnóstico.",
-          // Add other options here
-        ],
-      },
-      indicadores_10_Al_13: {
-        options: [
-          "Elaboración y/o actualización de diagnóstico.",
-          // Add other options here
-        ],
-      },
-      indicador_14: {
-        options: [
-          "Emisión de permisos para quemas agropecuarias",
-          // Add other options here
-        ],
-      },
-      tipo_Permiso: {
-        options: [
-          "Vacaciones",
-          // Add other options here
-        ],
-      },
+  Gerencial: ["Tipo_Permiso", "Actividad_Gerenciales"],
+  Tecnico: [
+    "indicadores_1_al_7",
+    "indicador_9_al_12",
+    "indicadores_13",
+    "indicador_14",
+    "Tipo_Permiso",
+  ],
+  opcionesDetalladas: {
+    Actividad_Gerenciales: {
+      options: [
+        " Coordinar y apoyar en las instancias de articulación interinstitucional (COSEL, CCCI, Comisiones, CNE, CTDR)",
+        "Promoción y aplicación de las  Buenas Prácticas Agropecuarias ",
+        "Coordinar, evaluar o supervisar procesos de producción sostenible en campo",
+        "Gestionar el desarrollo de encadenamientos agroproductivos ",
+        "Apoyar en la realización de diagnósticos  para la caracterización socio-económica y organizacional de los sistemas productivos",
+        "Apoyar procesos de transferencia e innovación tecnológica agropecuaria para fortalecer los sistemas productivos de organizaciones y familias productoras. ",
+        "Establecer registros de información de parámetros agroproductivos, ambientales  y socioeconómicos que permitan medir el avance en aspectos de la producción agropecuaria. (CENSO, Otros Registros).",
+        "Mantener actualizado el Sistema de Respaldo Documental, con los archivos técnicos que respalden la labor de la Agencia de Extensión Agropecuaria",
+        "Ejecutar programas, proyectos y procesos de extensión agropecuaria dirigidos  a productores, productoras y jóvenes rurales",
+        "Coordinar acciones entre departamentos institucionales, para el cumplimiento del POI y mejorar la prestación de los servicios agropecuarios.",
+        "Apoyar en la identificación, formulación y ejecución de proyectos agroproductivos presentados por las organizaciones de productores",
+        "Elaborar el Plan Operativo Institucional o informes de seguimiento de conformidad con los instrumentos establecidos a nivel regional",
+        "Seguimiento al buen uso de los recursos logísticos, de campo y materiales asignados, según normativas de control interno y gestión de calidad.",
+        "Labores de técnicas de oficina (logística, planeación, informes, actas e incorporación en sistemas informáticos ).",
+      ],
     },
-  };
-  
+    indicadores_1_al_7: {
+      options: [
+        "Elaboración y/o actualización de diagnóstico.",
+        "Elaboración y/o actualización de plan de trabajo.",
+        "Asesoría para fomentar la conservación de suelos y agua.",
+        "Labores de técnicas de oficina (logística, planeación, informes, actas e incorporación en sistemas informáticos, material escrito o digital).",
+        "Seguimiento a sistemas de producción, Bandera Azul",
+        "Inscripción de sistemas productivos en programas, proyectos, certificaciones y galardones",
+        "Asesoría en la implementación de alternativas de comercialización, mercadeo, valor agregado e inocuidad.",
+        "Entrega de insumos, material vegetal, animales o equipos",
+        "Levantamiento de información",
+        "Servicios de extensión en buenas prácticas de producción pecuaria",
+        "Asesoría en elaboración de bioinsumos (líquidos y sólidos)",
+        "Planificación, colecta y envío de muestras para la toma de decisiones agronómicas",
+        "Asesoría en temas agroproductivos (fertilización, problemas fitosanitarios, postcosecha) y/o administrativos para la mejora de sistemas productivos agropecuarios",
+        "Gestión de actividades de capacitación para productores",
+        "Servicios de extensión para el manejo agronómico del cultivo",
+        "Asesoría para la adaptación y mitigación de sistemas agroproductivos ante el efecto del cambio climático (tecnologías NAMA)",
+        "Asesoría para la adaptación y mitigación de sistemas agroproductivos ante el efecto del cambio climático (fincas externas al programa NAMA)",
+        "Gestión del proceso de atención de emergencias climáticas o de salud (Entregas y seguimientos de insumos)",
+        "Apoyo y seguimiento a investigaciones y validaciones (ejemplo: Parcelas demostrativas, ensayos, etc).",
+      ],
+    },
+    indicador_9_al_12: {
+      options: [
+        "Elaboración y/o actualización de diagnóstico.",
+        "Elaboración y/o actualización de plan de trabajo.",
+        "Formulación de proyectos",
+        "Seguimiento a proyectos",
+        "Identificación y gestión de recursos (Técnicos o Financieros)",
+        "Tramite de formalización de empresa, mercadotecnia (registro de marcas, código de barras, registro de etiquetas).",
+        "Asesoría para fomentar la conservación de suelos y agua.",
+        "Labores de técnicas de oficina (logística, planeación, informes, actas e incorporación en sistemas informáticos).",
+        "Asesoría en temas agroproductivos (fertilización, problemas fitosanitarios, postcosecha) y/o administrativos para la mejora de sistemas productivos agropecuarios",
+        "Inscripción de sistemas productivos en programas, proyectos, certificaciones y galardones",
+        "Asesoría en la implementación de alternativas de comercialización, mercadeo, valor agregado e inocuidad.",
+        "Entrega de insumos, material vegetal, animales o equipos",
+        "Planificación, colecta y envío de muestras para la toma de decisiones agronómicas",
+        "Atención a Centros Educativos",
+      ],
+    },
+    indicadores_13: {
+      options: [
+        "Emisión de permisos para quemas agropecuarias",
+        "Inscripción de productores agropecuarios en el sistema PYMPA y otorgar certificaciones",
+        "Emisión de acreditaciones de DEKRA a productores agropecuarios",
+        "Inscripción de productores y organizaciones en el sistema DNEA",
+        "Participación en PITTAS y Comisiones",
+        "Apoyo a inspecciones para el cumplimiento de aforos en coordinación con el Ministerio de Salud",
+        "Capacitación a funcionarios de la institución (De la región y fuera de la región)",
+      ],
+    },
+    indicador_14: {
+      options: [
+        "Emisión de permisos para quemas agropecuarias",
+        // ... otras opciones
+      ],
+    },
+    Tipo_Permiso: {
+      options: [
+        "Vacaciones",
+        "Incapacidad",
+        "Licencia con goce de salario en los casos en que un(a) hijo(a) menor de edad se encuentre internado(a)",
+        "Cita_Médica",
+        "Permiso Sin Goce Salarial",
+        "Permiso estudios",
+        "Permisos para gestiones personales",
+        "Licencia por matrimonio",
+        "Licencia por fallecimiento abuelos, padres, hijos, hermanos, cónyuge.",
+        "Licencia por nacimiento de hijo(a)",
+        "Incapacidad temporal originada por enfermedades",
+        "Orden Sanitaria",
+        "Día Feriado (Incluye asueto por Decreto)",
+      ],
+    },
+  },
+};

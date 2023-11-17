@@ -3,6 +3,24 @@ import Error from "./Error";
 import { actividadData } from "../types/categorias";
 import { tecnicaData } from "../types/tecnica";
 
+function transformarNombres(data) {
+  const newData = { ...data };
+
+  Object.keys(newData.opcionesDetalladas).forEach((key) => {
+    const originalOptions = newData.opcionesDetalladas[key].options;
+    const modifiedOptions = originalOptions.map((option) => {
+      return option.replace(/_/g, " ");
+    });
+    newData.opcionesDetalladas[key].options = modifiedOptions;
+  });
+
+  newData.tecnico = newData.tecnico.map((indicador) => {
+    return indicador.replace(/_/g, " ");
+  });
+
+  return newData;
+}
+
 const FormularioProgramacion = ({
   departamentos,
   setDepartamentos,
@@ -70,7 +88,7 @@ const FormularioProgramacion = ({
         servicio,
         programa,
         vehiculo,
-        detalleTecnica
+        detalleTecnica,
       ].includes("")
     ) {
       setError(true);
@@ -94,7 +112,7 @@ const FormularioProgramacion = ({
       servicio,
       programa,
       vehiculo,
-      detalleTecnica
+      detalleTecnica,
     };
 
     if (departamento.id) {
@@ -166,10 +184,13 @@ const FormularioProgramacion = ({
     setTecnica(selectedTecnica);
   };
 
-  const handleDetalleTecnicaChange = (e) => { // New function for handling "detalleTecnica" change
+  const handleDetalleTecnicaChange = (e) => {
+    // New function for handling "detalleTecnica" change
     const selectedDetalleTecnica = e.target.value;
     setDetalleTecnica(selectedDetalleTecnica);
   };
+
+  
   return (
     <div className="md:w-1/2 lg:w-2/5 mx-5">
       <h2 className="font-black text-3xl text-center">
@@ -255,13 +276,16 @@ const FormularioProgramacion = ({
             onChange={handleCategoriaChange}
           >
             <option value="">Selecciona una categoría</option>
-            {Object.keys(actividadData).map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
+            {Object.keys(actividadData)
+              .filter((category) => category !== "opcionesDetalladas")
+              .map((category) => (
+                <option key={category} value={category}>
+                  {category.replace(/_/g, " ")} {/* Modificación aquí */}
+                </option>
+              ))}
           </select>
         </div>
+
         <div className="mb-5">
           <label
             htmlFor="actividad"
@@ -278,7 +302,7 @@ const FormularioProgramacion = ({
             <option value="">Selecciona una actividad</option>
             {actividadData[categoria]?.map((option) => (
               <option key={option} value={option}>
-                {option}
+                {option.replace(/_/g, " ")}
               </option>
             ))}
           </select>
@@ -345,26 +369,26 @@ const FormularioProgramacion = ({
         </div>
 
         <div className="mb-5">
-        <label
-          htmlFor="detalleTecnica"
-          className="block text-gray-700 uppercase font-bold"
-        >
-          Detalle de la Técnica
-        </label>
-        <select
-          id="detalleTecnica"
-          className="border-2 w-full p-2 mt-2 rounded-md"
-          value={detalleTecnica} // Update the value here
-          onChange={handleDetalleTecnicaChange} // Use the new function
-        >
-          <option value="">Selecciona un detalle de técnica</option>
-          {tecnicaData[tecnica]?.options.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      </div>
+          <label
+            htmlFor="detalleTecnica"
+            className="block text-gray-700 uppercase font-bold"
+          >
+            Detalle de la Técnica
+          </label>
+          <select
+            id="detalleTecnica"
+            className="border-2 w-full p-2 mt-2 rounded-md"
+            value={detalleTecnica} // Update the value here
+            onChange={handleDetalleTecnicaChange} // Use the new function
+          >
+            <option value="">Selecciona un detalle de técnica</option>
+            {tecnicaData[tecnica]?.options.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="mb-5">
           <label
             htmlFor="modalidad"
