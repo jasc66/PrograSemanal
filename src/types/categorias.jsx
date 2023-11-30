@@ -89,7 +89,7 @@ export const actividadData = {
         "Vacaciones",
         "Incapacidad",
         "Licencia con goce de salario en los casos en que un(a) hijo(a) menor de edad se encuentre internado(a)",
-        "Cita_Médica",
+        "Cita Médica",
         "Permiso Sin Goce Salarial",
         "Permiso estudios",
         "Permisos para gestiones personales",

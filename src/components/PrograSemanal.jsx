@@ -190,7 +190,6 @@ const FormularioProgramacion = ({
     setDetalleTecnica(selectedDetalleTecnica);
   };
 
-  
   return (
     <div className="md:w-1/2 lg:w-2/5 mx-5">
       <h2 className="font-black text-3xl text-center">
@@ -362,7 +361,7 @@ const FormularioProgramacion = ({
             <option value="">Selecciona una Técnica</option>
             {Object.keys(tecnicaData).map((category) => (
               <option key={category} value={category}>
-                {category}
+                {category.replace(/_/g, " ")} {/* Modificación aquí */}
               </option>
             ))}
           </select>
@@ -384,7 +383,7 @@ const FormularioProgramacion = ({
             <option value="">Selecciona un detalle de técnica</option>
             {tecnicaData[tecnica]?.options.map((option) => (
               <option key={option} value={option}>
-                {option}
+                {option.replace(/_/g, " ")} {/* Modificación aquí */}
               </option>
             ))}
           </select>
@@ -396,14 +395,18 @@ const FormularioProgramacion = ({
           >
             Modalidad
           </label>
-          <input
+
+          <select
             id="modalidad"
-            type="text"
-            placeholder="Modalidad"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
             value={modalidad}
             onChange={(e) => setModalidad(e.target.value)}
-          />
+          >
+            <option value="">Selecciona la modalidad</option>
+            <option value="Presencial">Presencial</option>
+            <option value="Plataformas_virtuales">Plataformas Virtuales</option>
+            <option value="Teletrabajo">Teletrabajo</option>
+          </select>
         </div>
 
         <div className="mb-5">
@@ -463,14 +466,18 @@ const FormularioProgramacion = ({
           >
             REQUERIMIENTO VEHICULAR
           </label>
-          <input
+          <select
             id="vehiculo"
             type="text"
             placeholder="Vehículo"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
             value={vehiculo}
             onChange={(e) => setVehiculo(e.target.value)}
-          />
+          >
+            <option value="">Selecciona si requiere carro</option>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+          </select>
         </div>
 
         <input
